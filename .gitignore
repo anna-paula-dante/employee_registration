@@ -1,0 +1,58 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# Node / Frontend
+node_modules/
+**/node_modules/
+dist/
+.build/
+build/
+.cache/
+.vite/
+coverage/
+
+# Vite/React
+*.local
+.env
+!.env.example
+
+# __MACOSX from zips
+__MACOSX/
+**/__MACOSX/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Editor/IDE
+.vscode/
+.idea/
+*.swp
+
+# .NET
+bin/
+obj/
+**/bin/
+**/obj/
+*.user
+*.suo
+*.ncrunch*
+.vs/
+
+# Docker
+**/.docker/
+
+# Misc
+*.tmp
+*.temp
+~$*
+
+# Frontend build outputs
+fronted/peoplemanager-frontend/dist/
+fronted/peoplemanager-frontend/node_modules/
+fronted/__MACOSX/
