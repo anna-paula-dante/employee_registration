@@ -15,7 +15,6 @@ coverage/
 # Vite/React
 *.local
 .env
-.env.*
 !.env.example
 
 # __MACOSX from zips

@@ -12,6 +12,6 @@ FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS final
 WORKDIR /app
 RUN mkdir -p /tmp && chmod -R 777 /tmp
 COPY --from=build /app/publish .
-ENV ASPNETCORE_URLS=http://+:8081
-EXPOSE 8081
+ENV ASPNETCORE_URLS=http://+:8001
+EXPOSE 8001
 ENTRYPOINT ["dotnet", "PeopleManager.Api.dll"]

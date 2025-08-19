@@ -73,7 +73,7 @@ public class EmployeesController : ControllerBase
 
         var currentRole = GetCurrentRole(User);
         if (req.Role > currentRole)
-            return Forbid(); // não pode criar superior
+            return Forbid();
 
         var emp = new Employee
         {
@@ -127,7 +127,6 @@ public class EmployeesController : ControllerBase
         if (!string.IsNullOrWhiteSpace(req.Password))
             emp.PasswordHash = BCrypt.Net.BCrypt.HashPassword(req.Password);
 
-        // Atualização por diff para reduzir chance de concorrência e evitar deletar/reatribuir tudo
         var newNumbers = req.Phones.ToHashSet();
         var currentPhones = emp.Phones.ToList();
 

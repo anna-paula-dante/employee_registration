@@ -21,11 +21,11 @@ No primeiro start, verá nos logs:
 
 ### Healthcheck
 ```
-curl http://localhost:8080/health
+curl http://localhost:8001/health
 ```
 
 ### Swagger
-Abrir: `http://localhost:8080/swagger`
+Abrir: `http://localhost:8001/swagger`
 
 ## Login padrão
 - Email: `admin@peoplemanager.com`

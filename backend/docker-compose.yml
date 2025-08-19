@@ -30,7 +30,7 @@ services:
         condition: service_healthy
     environment:
       ASPNETCORE_ENVIRONMENT: Development
-      ASPNETCORE_URLS: "http://0.0.0.0:8081"
+      ASPNETCORE_URLS: "http://0.0.0.0:8001"
 
       DB_HOST: db
       DB_PORT: "5432"
@@ -49,9 +49,9 @@ services:
 
       TZ: "America/Sao_Paulo"
     ports:
-      - "8081:8081"
+      - "8001:8001"
     healthcheck:
-      test: ["CMD", "wget", "--spider", "-q", "http://localhost:8081/health"]
+      test: ["CMD", "wget", "--spider", "-q", "http://localhost:8001/health"]
       interval: 10s
       timeout: 3s
       retries: 10
