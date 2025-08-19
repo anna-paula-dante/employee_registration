@@ -4,7 +4,7 @@ Aplicação completa (API .NET 8 + Postgres + Frontend React/Vite) com Docker.
 
 ## Requisitos
 - Docker Desktop (Windows/Mac) ou Docker + Compose
-- Portas livres: API 9999, Front 5173 (dev) ou 8081 (prod)
+- Portas livres: API 8081, Front 5173 
 
 ## Subir tudo com Docker
 
