@@ -1,0 +1,22 @@
+
+version: '3.9'
+services:
+  fe-dev:
+    image: node:20-alpine
+    working_dir: /app
+    volumes:
+      - ./:/app
+    environment:
+      - VITE_API_URL=${VITE_API_URL:-http://localhost:8080}
+      - VITE_API_ROLE_IS_NUMERIC=${VITE_API_ROLE_IS_NUMERIC:-true}
+    ports:
+      - "5173:5173"
+    command: sh -lc "npm i && npm run dev -- --host"
+  fe-prod:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8081:80"
+    environment:
+      - API_URL=${VITE_API_URL:-http://host.docker.internal:8080}

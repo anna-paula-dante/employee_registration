@@ -1,0 +1,66 @@
+
+
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: people_db_fix
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: people
+      TZ: "America/Sao_Paulo"
+    ports:
+      - "5433:5432"
+    volumes:
+      - pgdata_people:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d people"]
+      interval: 5s
+      timeout: 3s
+      retries: 15
+    restart: unless-stopped
+
+  api:
+    container_name: people_api_fix
+    build:
+      context: .
+      dockerfile: PeopleManager.Api/Dockerfile
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_URLS: "http://0.0.0.0:8081"
+
+      DB_HOST: db
+      DB_PORT: "5432"
+      DB_USER: postgres
+      DB_PASSWORD: postgres
+      DB_NAME: people
+
+      Jwt__Key: "ZFasPNuopqQ8ndCq8vBn89OqN0x2r7EAncXO6JYH7h4wxIO4fcCFXaGXwGY3YGLfBjOITQntxufaSXmp3utCUQ=="
+
+      ADMIN_FIRST: "System"
+      ADMIN_LAST: "Administrator"
+      ADMIN_EMAIL: "admin@peoplemanager.com"
+      ADMIN_DOCUMENT: "00000000000"
+      ADMIN_BIRTHDATE: "1990-01-01"
+      ADMIN_PASSWORD: "Admin@12345"
+
+      TZ: "America/Sao_Paulo"
+    ports:
+      - "8081:8081"
+    healthcheck:
+      test: ["CMD", "wget", "--spider", "-q", "http://localhost:8081/health"]
+      interval: 10s
+      timeout: 3s
+      retries: 10
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+    restart: unless-stopped
+
+volumes:
+  pgdata_people:
