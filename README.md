@@ -237,7 +237,10 @@ src/tests        -> Vitest
 
 ## Licença
 
-Distribuído sob a licença MIT. Veja `LICENSE` para mais informações.
+Este projeto é **propriedade exclusiva de Anna Paula Dante**.  
+Todos os direitos reservados.  
+Não é permitida a cópia, modificação ou distribuição sem autorização prévia e por escrito do autor.
+
 
 ---
 
