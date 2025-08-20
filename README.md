@@ -118,7 +118,7 @@ Senha: Admin@12345
 ### 2a. Frontend (Dev, hot reload)
 
 ```bash
-cd frontend/peoplemanager-frontend
+cd frontend
 export VITE_API_BASE_URL=http://localhost:8001   # Linux/Mac
 set VITE_API_BASE_URL=http://localhost:8001      # Windows PowerShell
 
@@ -130,12 +130,11 @@ docker compose up -d fe-dev
 ### 2b. Frontend (Prod, Nginx)
 
 ```bash
-cd frontend/peoplemanager-frontend
-docker compose build fe-prod --build-arg VITE_API_BASE_URL=http://localhost:8001
-docker compose up -d fe-prod
+cd frontend
+docker compose up -d --build fe-dev
 ```
 
-**Acesse:** http://localhost:8081
+**Acesse:** http://localhost:5173/
 
 ---
 
@@ -173,7 +172,7 @@ dotnet test
 
 ### Frontend
 ```bash
-cd frontend/peoplemanager-frontend
+cd frontend/
 npm test
 ```
 
@@ -214,14 +213,6 @@ src/context      -> AuthContext, RBAC
 src/services     -> Axios + interceptors
 src/tests        -> Vitest
 ```
-
----
-
-## Screenshots
-
-- Login
-- Listagem de Funcionários
-- Cadastro de Funcionário
 
 ---
 
