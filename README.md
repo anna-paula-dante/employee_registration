@@ -241,9 +241,6 @@ Distribuído sob a licença MIT. Veja `LICENSE` para mais informações.
 
 ---
 
-Este README está **no formato exato do mercado**: completo e detalhado, estrutura clara, instruções Docker, testes, RBAC, e área de screenshots (você só precisa salvar as capturas em `docs/screenshots/`).
-
-
 ### References
 
 1. **React, Node.js, Express and PostgreSQL CRUD app**. [https://www.corbado.com](https://www.corbado.com/blog/react-express-crud-app-postgresql)
